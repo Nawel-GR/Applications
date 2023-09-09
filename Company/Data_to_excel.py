@@ -2,16 +2,19 @@ import os
 import pandas as pd
 import tabula as tb
 import numpy as np
+from window_values import WindowTK
 
 
 def main():
-    current_directory = os.getcwd()
+    w = WindowTK()
+    file_path = w.get_file()
+    save_path = w.get_save()
 
     columns = [111.433, 175.142, 450.397, 543.008, 653.984]
     area = [103.287,35.394,578.02,788.594]
 
     # Read the pdf and extract the tables
-    tables = tb.read_pdf(f"{current_directory}/informe.pdf", area=area, columns = columns, pages = 'all')
+    tables = tb.read_pdf(file_path, area=area, columns = columns, pages = 'all')
 
 
     # concat tables
@@ -37,7 +40,7 @@ def main():
     merged_table.dropna(subset = ['Ubicación Fisica'],inplace=True, ignore_index = True)
 
     # Guardar la tabla completa en un archivo CSV
-    merged_table.to_excel(f"{current_directory}/informe_completo_merged.xlsx", sheet_name='Data', index=False)
+    merged_table.to_excel(f"{save_path}/informe_completo_merged.xlsx", sheet_name='Data', index=False)
 
 
 if __name__ == '__main__':
