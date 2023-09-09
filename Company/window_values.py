@@ -9,7 +9,7 @@ class WindowTK():
         # Creating the tkinter Window
         self.root = tk.Tk()
         self.root.title("Transformación Archivos Activo Histórico")
-        self.root.geometry("800x300")
+        self.root.geometry("800x200")
         self.root.config(bg="dark gray")
         self.root.grid_rowconfigure(0, weight = 1)
         self.root.grid_columnconfigure(0, weight = 1)
@@ -31,14 +31,14 @@ class WindowTK():
         exit_button = tk.Button(self.root, text="Guardar y Salir", command=self.salir)
         
 
-        pathfile_b.place(x = 30, y = 150)
-        self.show_pathfile.place(x = 140, y = 150)
+        pathfile_b.place(x = 30, y = 50)
+        self.show_pathfile.place(x = 140, y = 50)
 
-        pathsave_b.place(x = 30, y = 195)
-        self.show_pathsave.place(x = 140, y = 195)
+        pathsave_b.place(x = 30, y = 95)
+        self.show_pathsave.place(x = 140, y = 95)
 
 
-        exit_button.place(x = 350, y = 250)
+        exit_button.place(x = 350, y = 150)
 
         #Call Loop
         self.root.mainloop()
